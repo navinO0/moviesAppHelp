@@ -239,7 +239,7 @@ class MovieItemDetailsRoute extends Component {
                 </div>
                 <div className="similar-movies-list">
                   <h1 className="movies-like-heading">More like this</h1>
-                  <ul className="popular-movies-ul-list-container">
+                  <ul className="details-movies-ul-list-container">
                     {similarmovies.map(eachOne => (
                       <li key={eachOne.id} className="list-item">
                         <PopularMoviesCard eachOne={eachOne} />

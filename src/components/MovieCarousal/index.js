@@ -107,12 +107,12 @@ class MovieCarousal extends Component {
   failureView = () => (
     <>
       <div className="carou-failure-view-main-container">
-        <img
-          src="https://res.cloudinary.com/dzapdxkgc/image/upload/v1668213303/moviesapp/alert-triangle_jiah9l.png"
-          alt="failure view"
-          className="coution-image"
-        />
         <div className="failure-view-card-container">
+          <img
+            src="https://res.cloudinary.com/dzapdxkgc/image/upload/v1668213303/moviesapp/alert-triangle_jiah9l.png"
+            alt="failure view"
+            className="coution-image"
+          />
           <p className="try-again-text">
             Something went wrong. Please try again
           </p>

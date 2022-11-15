@@ -47,6 +47,7 @@
 .carausal-container {
   padding: 0px;
   width: 80%;
+  min-height: 170px;
   height: auto;
 }
 
