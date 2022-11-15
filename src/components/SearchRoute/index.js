@@ -91,7 +91,7 @@ class SearchRoute extends Component {
           <PaginationComponent videosList={fetchedList} itemsPerPage={9} />
         </div>
         <div className="lg-list">
-          <PaginationComponent videosList={fetchedList} itemsPerPage={10} />
+          <PaginationComponent videosList={fetchedList} itemsPerPage={15} />
         </div>
       </>
     )

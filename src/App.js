@@ -16,17 +16,17 @@ import MoviesContext from './MoviesContext/MoviesContext'
 class App extends Component {
   state = {wacthlist: [], popularList: []}
 
-  //   addToWatchList = movie => {
-  //     const {watchlist} = this.state
-  //     const movieObject = watchlist.find(eachOne => eachOne.id === movie.id)
-  //     if (movieObject === undefined) {
-  //       this.setState(prevState => ({watchlist: [...prevState.watchlist, movie]}))
-  //     } else {
-  //       this.setState({
-  //         watchlist: watchlist.filter(eachOne => eachOne.id !== movie.id),
-  //       })
-  //     }
-  //   }
+  addToWatchList = movie => {
+    const {watchlist} = this.state
+    const movieObject = watchlist.find(eachOne => eachOne.id === movie.id)
+    if (movieObject === undefined) {
+      this.setState(prevState => ({watchlist: [...prevState.watchlist, movie]}))
+    } else {
+      this.setState({
+        watchlist: watchlist.filter(eachOne => eachOne.id !== movie.id),
+      })
+    }
+  }
 
   getPopularContext = popularContent => {
     this.setState({popularList: popularContent})

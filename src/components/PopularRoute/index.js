@@ -73,7 +73,7 @@ class PopularRoute extends Component {
         <div className="lg-list">
           <PaginationComponent
             videosList={popularmovieslist}
-            itemsPerPage={10}
+            itemsPerPage={15}
           />
         </div>
       </>
