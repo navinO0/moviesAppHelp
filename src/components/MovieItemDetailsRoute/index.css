@@ -226,8 +226,8 @@
 
 @media screen and (max-width: 576px) {
   .similar-movies-list {
-    width: 95%;
-    padding-left: 0px;
+    width: 100%;
+    padding-left: 15px;
   }
   .movies-like-heading {
     font-family: 'Roboto';
@@ -280,7 +280,7 @@
     margin-bottom: 0px;
   }
   .details-movies-ul-list-container {
-    padding-left: 10px;
+    padding-left: 0px;
   }
 
   .movie-item-details-container {
