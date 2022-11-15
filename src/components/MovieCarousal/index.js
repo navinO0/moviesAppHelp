@@ -8,7 +8,6 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import SliderMovieCard from '../SliderMovieCard'
 
-/* Add css to your project */
 import './index.css'
 
 const getApiStatus = {

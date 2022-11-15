@@ -14,27 +14,34 @@ import NotFound from './components/NotFoundRoute'
 import MoviesContext from './MoviesContext/MoviesContext'
 
 class App extends Component {
-  state = {wacthlist: []}
+  state = {wacthlist: [], popularList: []}
 
-  addToWatchList = movie => {
-    const {watchlist} = this.state
-    const movieObject = watchlist.find(eachOne => eachOne.id === movie.id)
-    if (movieObject === undefined) {
-      this.setState(prevState => ({watchlist: [...prevState.watchlist, movie]}))
-    } else {
-      this.setState({
-        watchlist: watchlist.filter(eachOne => eachOne.id !== movie.id),
-      })
-    }
+  //   addToWatchList = movie => {
+  //     const {watchlist} = this.state
+  //     const movieObject = watchlist.find(eachOne => eachOne.id === movie.id)
+  //     if (movieObject === undefined) {
+  //       this.setState(prevState => ({watchlist: [...prevState.watchlist, movie]}))
+  //     } else {
+  //       this.setState({
+  //         watchlist: watchlist.filter(eachOne => eachOne.id !== movie.id),
+  //       })
+  //     }
+  //   }
+
+  getPopularContext = popularContent => {
+    this.setState({popularList: popularContent})
   }
 
   render() {
-    const {watchlist} = this.state
+    const {watchlist, popularList} = this.state
+    console.log(popularList)
     return (
       <MoviesContext.Provider
         value={{
           addToWatchList: this.addToWatchList,
           watchList: watchlist,
+          getPopularContext: this.getPopularContext,
+          popularHomeList: popularList,
         }}
       >
         <>

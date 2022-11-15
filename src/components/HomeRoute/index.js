@@ -15,7 +15,7 @@ const getApiStatus = {
 }
 
 class HomeRoute extends Component {
-  state = {trendingVideos: [], originalsVideos: [], homePoster: {}}
+  state = {homePoster: {}}
 
   componentDidMount() {
     this.getOriginalsData()
@@ -54,7 +54,43 @@ class HomeRoute extends Component {
       const x = Math.floor(Math.random() * len)
 
       this.setState({
-        trendingVideos: modifiedTrendingData,
+        homePoster: modifiedTrendingData[x],
+        apistatus: getApiStatus.success,
+      })
+    } else {
+      this.setState({apistatus: getApiStatus.failure})
+    }
+  }
+
+  getOriginalsData = async () => {
+    this.setState({apistatus: getApiStatus.inprogress})
+
+    const token = Cookies.get('jwt_token')
+
+    const url = 'https://apis.ccbp.in/movies-app/originals'
+    const options = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      method: 'GET',
+    }
+    const response = await fetch(url, options)
+    if (response.ok) {
+      const trendingData = await response.json()
+      const resultData = trendingData.results
+
+      const modifiedTrendingData = resultData.map(e => ({
+        backdropPath: e.backdrop_path,
+        id: e.id,
+        overview: e.overview,
+        posterPath: e.poster_path,
+        title: e.title,
+      }))
+
+      const len = modifiedTrendingData.length
+      const x = Math.floor(Math.random() * len)
+
+      this.setState({
         homePoster: modifiedTrendingData[x],
         apistatus: getApiStatus.success,
       })
@@ -149,10 +185,9 @@ class HomeRoute extends Component {
   }
 
   render() {
-    const {trendingVideos, originalsVideos} = this.state
     const trendingUrl = 'https://apis.ccbp.in/movies-app/trending-movies'
     const originalUrl = 'https://apis.ccbp.in/movies-app/originals'
-    const isTrue = true
+    const topRated = 'https://apis.ccbp.in/movies-app/top-rated-movies'
 
     return (
       <div className="home-main-container">
@@ -160,17 +195,16 @@ class HomeRoute extends Component {
         <div className="movies-sections-container-home">
           <h1 className="movies-section-title">Trending Now</h1>
           <div className="carausal-container">
-            <MovieCarousal
-              trendingVideos={trendingVideos}
-              apiUrl={trendingUrl}
-            />
+            <MovieCarousal apiUrl={trendingUrl} />
+          </div>
+          <h1 className="movies-section-title">Top Rated</h1>
+          <div className="carausal-container">
+            <MovieCarousal apiUrl={topRated} />
           </div>
           <h1 className="movies-section-title">Originals</h1>
           <div className="carausal-container">
             <MovieCarousal
-              trendingVideos={originalsVideos}
               apiUrl={originalUrl}
-              isOriginal={isTrue}
               getApiStatusHome={this.getApiStatusHome}
               getRandomMovieDetails={this.getRandomMovieDetails}
             />
