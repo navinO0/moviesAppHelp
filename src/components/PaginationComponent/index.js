@@ -5,23 +5,6 @@ import ReactPaginate from 'react-paginate'
 import PopularMoviesCard from '../PopularMoviesCard'
 import './index.css'
 
-// Example items, to simulate fetching from another resources.
-
-// const renderPoplurContent = () => {
-//   const {popularmovieslist} = this.state
-//   return (
-//     <>
-//       <div className="popular-sub-container">
-//         <ul className="popular-movies-list-container">
-//           {popularmovieslist.map(eachOne => (
-//             <PopularMoviesCard key={eachOne.id} eachOne={eachOne} />
-//           ))}
-//         </ul>
-//       </div>
-//     </>
-//   )
-// }
-
 function Items({currentItems}) {
   return (
     <>
@@ -40,15 +23,15 @@ function PaginatedItems({itemsPerPage, videosList}) {
   const [itemOffset, setItemOffset] = useState(0)
 
   const endOffset = itemOffset + itemsPerPage
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`)
+  //   console.log(`Loading items from ${itemOffset} to ${endOffset}`)
   const currentItems = videosList.slice(itemOffset, endOffset)
   const pageCount = Math.ceil(videosList.length / itemsPerPage)
 
   const handlePageClick = event => {
     const newOffset = (event.selected * itemsPerPage) % videosList.length
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`,
-    )
+    // console.log(
+    //   `User requested page number ${event.selected}, which is offset ${newOffset}`,
+    // )
     setItemOffset(newOffset)
   }
 

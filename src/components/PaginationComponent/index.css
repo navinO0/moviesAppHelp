@@ -21,6 +21,7 @@
   padding-left: 7px;
   padding-right: 7px;
   border-radius: 3px;
+
   color: red;
 }
 .direction-class {
@@ -32,14 +33,14 @@
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-
+  padding-top: 1px;
+  height: 25px;
+  padding-bottom: 0px;
+  font-size: 20px;
   margin: 7px;
 }
 .arrow-icon {
   color: #ffffff;
-  font-size: 14px;
 }
 .pages-class {
   font-family: 'Roboto';
@@ -80,7 +81,7 @@
     width: 100%;
     padding-left: 17px;
     margin-top: 0px;
-    min-height: 65vh;
+    min-height: 70vh;
     height: auto;
   }
 }

@@ -18,6 +18,7 @@ const getApiStatus = {
 class SearchRoute extends Component {
   state = {
     searchekey: '',
+    searchedKey: '',
     fetchedList: [],
     vidsLength: 1,
     apistatus: getApiStatus.initial,
@@ -62,11 +63,13 @@ class SearchRoute extends Component {
   }
 
   onClickSearchButton = () => {
+    const {searchekey} = this.state
     this.getSearchedData()
+    this.setState({searchedKey: searchekey})
   }
 
   renderNoVids = () => {
-    const {searchekey} = this.state
+    const {searchedKey} = this.state
     return (
       <div className="no-vid-main-container">
         <div className="no-vids-sub-container">
@@ -77,7 +80,7 @@ class SearchRoute extends Component {
               className="no-vids-image"
             />
           </div>
-          <p className="try-again-text">{`Your search for ${searchekey} did not find any matches`}</p>
+          <p className="try-again-text">{`Your search for ${searchedKey} did not find any matches`}</p>
         </div>
       </div>
     )

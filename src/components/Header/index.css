@@ -61,6 +61,7 @@
 }
 .seach-comp-container {
   display: flex;
+
   margin-right: 30px;
   align-items: center;
   border-radius: 3px;
@@ -77,6 +78,7 @@
   background-color: transparent;
   outline: none;
   border: none;
+
   color: #7e858e;
 }
 .seach-icon {
@@ -172,10 +174,10 @@
   .header-nav-links-container-sm-opt {
     width: 100%;
     display: flex;
+
     justify-content: space-between;
   }
   .header-sub-container-sm-opt {
-    display: block;
     width: 90%;
 
     display: flex;
@@ -191,7 +193,6 @@
     display: none;
   }
   .header-nav-links-container-sm {
-    display: block;
     display: flex;
     justify-content: flex-end;
     align-items: center;
